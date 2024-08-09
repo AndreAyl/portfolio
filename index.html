@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andre Aylward - My Personal Portfolio</title>
     <link rel="stylesheet" href="resources\css\styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <div class="container">
-      <header class="header">
-        <nav>
+      <header>
+        <div class="navbar">
+          <div class="logo">
+            <a href=""><img src="resources\Images\Dre logo.svg" alt="logo"></a>
+          </div>
           <ul>
             <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Projects</a></li>
             <li><a href="">Experience</a></li>
-            <li><a href="">Contact</a></li>
           </ul>
-        </nav>
+          <a href="" class="cta_btn">Let's talk</a>
+          <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+        <div class="dropdown-menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">Experience</a></li>
+            <li><a href="" class="cta_btn">Let's talk</a></li>
+        </div>
       </header>
 
       <section id="hero" class="hero">
@@ -25,17 +39,43 @@
           <img src="resources\Images\hero-img.png" alt="Hero Image">
         </div>
         <div class="hero-content">
-          <div class="hero-text-background">
-            <h1>Andre Aylward</h1>
-            <p>"Clean, readable code that understands your brand."</p>
+          <div class="code-editor">
+            <div class="editor-header">
+              <span class="editor-language">css</span>
+            </div>
+            <div id="code-output" class="code-output" contenteditable="true" spellcheck="false">
+              /* Welcome to my portfolio */
+              body {
+                code: clean;
+                brand: aligned;
+              }
+            </div>
+            <textarea id="code-editor-textarea" style="display: none;"></textarea>
           </div>
         </div>
+        
       </section>
 
       <section id="about" class="about">
-          <h2>About Me</h2>
-          <p>A short paragraph about me</p>
+        <div class="about-section">
+          <div class="about-section-inner">
+          <h1>Behind the Pixels</h1>
+          <p>
+            I'm a <span class="highlight">front-end developer</span> with three years of experience 
+            in creating and optimizing websites and user experiences. Graduating cum laude in 
+            Strategic Brand Management from IIE Vega School, I combine creative and analytical skills 
+            to craft clean, brand-aligned code. 
+          </p>
+          <p>
+            I've led impactful projects like a <span class="highlight">UX overhaul for Sapmok</span> 
+            and a full website refresh for <span class="highlight">Parktown Travel</span>. With 
+            expertise in HTML, CSS, C#, JavaScript, and the latest frameworks, I bridge the gap 
+            between development and branding to deliver exceptional digital experiences.
+          </p>
+        </div>
+        </div>
       </section>
+      
 
       <section id="projects" class="projects">
         <h2>Recent Projects</h2>

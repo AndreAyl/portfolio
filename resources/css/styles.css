@@ -11,51 +11,155 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#about {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+}
 /*Grid container setup*/
 .container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: minmax(100px, auto); /* define rows for the grid*/
-  gap: 10px; 
-  padding: 20px;
+  gap: 0px; 
+  padding: 0px;
 }
 
 /*header styling*/
-.header {
-  grid-column: span 12;
-  background: #333;
-  color: white; 
-}
-
-.header nav ul {
-  display: flex;
-  justify-content: space-around;
+li {
   list-style: none;
-  padding: 10px;
-} 
-
-.header nav ul li a {
-  color: white;
-  text-decoration: none;
 }
 
-/*Hero section styling*/
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+a:hover {
+  color: burlywood;
+}
+
+header {
+  z-index: 100;
+  grid-column: span 12;
+  grid-row: span 2;
+  position: relative;
+  padding: 0 rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.navbar {
+  width: 100%;
+  height: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: -10rem;
+}
+
+.logo img {
+  width: auto;
+  max-height: 200px;
+  display: block;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn {
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.cta_btn {
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #ffe139;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: scale 0.5 ease;
+}
+
+.cta_btn:hover {
+  scale: 1.05;
+  color: #000;
+  background-color: #ffe75d;
+}
+
+.cta_btn:active {
+  scale: 0.95;
+
+}
+
+/*DROPDOWN MENU*/
+.dropdown-menu{
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  height: 0;
+  width: 300px;
+  background-color: rgb(255, 225, 225, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown-menu.open {
+  height: 240px;
+}
+
+.dropdown-menu li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-menu .cta_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Hero section styling */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column: span 12;
-  grid-row: span 3;
+  grid-row: span 2;
   background-color: #d6ffa1;
   background-image: url("C:/Users/andre/Desktop/Visual Studio Projects/Web Development/portfolio/resources/Images/cross grid transparent.svg");
   background-size: cover;
-  background-position: center; /* Start position */
-  background-repeat: repeat-x; /* Repeat only horizontally */
+  background-position: center;
+  background-repeat: repeat-x;
   text-align: center;
   color: #333;
-  padding: 0;
+  padding: 20px;
   position: relative;
-  overflow: hidden;/* Apply animation */
-  min-height: 80vh;
+  overflow: hidden;
+  min-height: 60vh;
   height: auto;
 }
 
@@ -75,6 +179,7 @@ html, body {
   height: 100%;
   object-fit: cover;
   animation: float-and-fade 1s forwards;
+  margin: 0;
 }
 
 .hero-content {
@@ -83,30 +188,126 @@ html, body {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
-  max-width: 90%;
+  width: 80%;
   margin: 0 auto;
   animation: fade-in 2s forwards;
 }
 
-.hero-text-background {
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
+/* Code Editor Styles */
+.code-editor {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.editor-header {
+  background-color: #333;
+  padding: 8px 15px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #444;
+}
+
+.editor-language {
+  background-color: #888;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.code-output {
+  display:block;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  padding: 20px;
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #d4d4d4;
+  background-color: #1e1e1e;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.token.selector {
+  color: #a6e22e;
+}
+
+.token.property {
+  color: #f92672;
+}
+
+.token.value {
+  color: #e6db74;
+}
+
+.token.comment {
+  color: #75715e;
+}
+
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+/* About Section Styles */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; /* Light background color to contrast with section */
+  padding: 50px 20px; /* Added horizontal padding */
+}
+
+.about-section {
+  max-width: 100%; /* Slightly narrower for better readability */
   background-color: white;
-  padding: 5% 0;
+  color: #333;
+  padding: 40px; /* Reduced padding for a cleaner look */
+  border-radius: 8px; /* Rounded corners for a modern feel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center;
+  font-family: 'Arial', sans-serif; /* Consistent font for readability */
 }
 
-.hero h1 {
-  font-size: 3em;
+.about-section h1 {
+  font-size: 2.5em;
   margin-bottom: 20px;
+  color: #333; /* Dark color for better contrast */
 }
 
-.hero p {
-  font-size: 1.5em;
+.about-section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #555; /* Slightly lighter color for better readability */
+  margin: 0; /* Remove default margin to control spacing */
 }
 
+.about-section p br {
+  display: none; /* Remove redundant breaks */
+}
+
+.about-section .highlight {
+  font-weight: bold;
+  color: #007bff; /* Accent color for emphasis */
+}
 
 
 @keyframes fade-in {
@@ -171,11 +372,14 @@ html, body {
     gap: 8px;
   }
 
+  .logo {
+    margin-left: 0;
+  }
+
   .hero {
     min-height: 50vh;
     padding: 20px 0;
   }
-
 
   .hero h1 {
     font-size: 1.5em;
@@ -184,10 +388,6 @@ html, body {
   .hero p {
     font-size: 1.2em;
   }
-
-  .header nav ul li {
-    margin-bottom: 10px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -195,9 +395,22 @@ html, body {
     grid-template-columns: 1fr; /*Single column layout for smaller screens*/
     grid-template-rows: auto; /*Let rows adapt to content*/
   }
+  
+  .logo img {
+    margin-left: auto;
+  }
 
-  .header nav ul {
-    flex-direction: column;
+  .navbar ul,
+  .navbar .cta_btn {
+    display: none;
+  }
+
+  .navbar .toggle_btn {
+    display: block;
+  }
+
+  .dropdown-menu {
+    display: block;
   }
 
   .hero {
@@ -209,18 +422,24 @@ html, body {
   .hero-image {
     width: auto;
     height: 100%;
-    right: 30%;
     position: absolute;
   }
 
   .hero-content {
-    left: 55%;
     transform: translate(-50%, -10%);
     padding: 10px;
     text-align: center;
-    max-width: 50%;
-    width: auto;
     position: relative;
+    left: 50%;
+  }
+
+  #code-editor-textarea {
+    height: 200px;
+    font-size: 0.875rem;
+  }
+
+  .code-output {
+    font-size: 0.875rem;
   }
 
   .hero h1 {
@@ -237,26 +456,29 @@ html, body {
 }
 
 @media (max-width: 480px) {
+  .dropdown-menu{
+    top: 10rem;
+    left: 2rem;
+    width: unset;
+  }
+
   .hero {
-    min-height: 40vh;
+    min-height: 20vh;
     padding: 10px 0;
     text-align: center;
   }
 
   .hero-image {
     width: auto;
+    left: -10%;
     height: 100%;
-    right: 20%;
     position: absolute;
   }
 
   .hero-content {
-    top: 25%;
-    left: 55%;
-    transform: translate(-50%, 0%);
+    right: -10%;
     padding: 10px;
     text-align: center;
-    max-width: 50%;
     width: auto;
     position: relative;
   }
