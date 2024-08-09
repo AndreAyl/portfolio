@@ -150,7 +150,7 @@ header {
   grid-column: span 12;
   grid-row: span 2;
   background-color: #d6ffa1;
-  background-image: url("../resources/Images/cross grid transparent.svg");
+  background-image: url("../Images/green-cross-grid-landscape.svg");
   background-size: cover;
   background-position: center;
   background-repeat: repeat-x;
