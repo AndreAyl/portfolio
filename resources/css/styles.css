@@ -46,7 +46,7 @@ html, body {
   grid-column: span 12;
   grid-row: span 3;
   background-color: #d6ffa1;
-  background-image: url("resources/Images/cross grid transparent.svg");
+  background-image: url("../resources/Images/cross grid transparent.svg");
   background-size: cover;
   background-position: center; /* Start position */
   background-repeat: repeat-x; /* Repeat only horizontally */
